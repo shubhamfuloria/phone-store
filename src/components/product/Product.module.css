@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  border: 2px solid black;
+  cursor: pointer;
+  max-width: 800px;
+}
+
+.image_container {
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+}
+
+.image_container img {
+  max-width: 100%;
+}
+
+.rating_container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.rating_container span:first-child{
+  background: green;
+  color: white;
+  font-weight: bold;
+  padding: .2rem .35rem;
+  border-radius: 4px;
+}
+
+.rating_container span:nth-child(2) {
+  color: grey;
+  font-weight: bold;
+  font-size: .9rem;
+}
+
+.card h3 {
+  font-size: 1.8rem;
+}
+
+.card:hover .title {
+  color: blue;
+}
+
