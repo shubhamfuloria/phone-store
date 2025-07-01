@@ -1,0 +1,9 @@
+.products_container {
+  padding: 1rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 1rem;
+  justify-content: space-around;
+  row-gap: 3rem;;
+}
