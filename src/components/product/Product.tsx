@@ -1,4 +1,4 @@
-import styles from './Product.module.css'
+import styles from "./Product.module.css";
 
 import type { ProductDetail } from "../../utils/types";
 
@@ -22,27 +22,40 @@ export default function Product(props: ProductDetail) {
         <img src={image} alt={name} />
       </div>
       <div className="card__details">
-        <div>
+        <div className={styles.title_container}>
           <h3 className={styles.title}>{name}</h3>
           <div className={styles.rating_container}>
-            <span>4.3 <FaStar color='white'/></span>
-            <span>5000 Review & 100 Ratings</span>
+            <span>
+              4.3 <FaStar color="golden" />
+            </span>
+            <span>5000 Review</span>
           </div>
         </div>
-        <ul>
-          <li>32 GB RAM</li>
-          <li>Screen Size{screenSize} inch</li>
-          <li>Battery Life {batteryLife} hours</li>
+        <ul className={styles.featureList}>
           <li>
-            <div className='details__colors-container'>
-              {colors.map(color => <span style={{background: color}}></span>)}
+            <span>RAM</span>
+            <span>{32} GB</span>
+          </li>
+          <li>
+            <span>Screen Size</span>
+            <span>{screenSize}"</span>
+          </li>
+          <li>
+            <span>Battery Life</span>
+            <span> {batteryLife} hours</span></li>
+          <li>
+            <span>Colors</span>
+            <div className="details__colors-container">
+              {colors.map((color) => (
+                <span style={{ background: color }}></span>
+              ))}
             </div>
           </li>
         </ul>
       </div>
-      <div className="card__price-container">
+      <div className={styles.price_container}>
         <h2>₹{price}</h2>
-        <span>9999</span>
+        <button>+ Add to Compare</button>
       </div>
     </div>
   );

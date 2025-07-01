@@ -1,15 +1,21 @@
+import type { ProductDetail } from "./utils/types";
+
 import { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import data from "./assets/data.json";
 import Product from "./components/product/Product";
-import type { ProductDetail } from "./utils/types";
+import Header from "./components/header/Header";
+import logo from './assets/logo.png'
 
 function App() {
   const [products, setProducts] = useState<ProductDetail[]>(data);
   const product = data[0];
 
   return (
-    <div style={{ padding: "1rem 3rem", display: 'flex', flexWrap: 'wrap', margin: 'auto' }}>
+    <>
+    <Header logo={logo} heading="PhoneCart"/>
+    <main>
+    <div className={styles.products_container}>
       {products.map((product) => (
         <Product
           name={product.name}
@@ -23,6 +29,8 @@ function App() {
         />
       ))}
     </div>
+    </main>
+    </>
   );
 }
 
