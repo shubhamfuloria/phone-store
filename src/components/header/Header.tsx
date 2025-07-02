@@ -51,6 +51,7 @@ export default function Header(props: HeaderProps) {
           </ul>
         </nav>
         <button
+          className={styles.themeButton}
           style={{
             background: theme === Theme.LIGHT ? "#23272f" : "",
             color: theme === Theme.LIGHT ? "white" : "",
