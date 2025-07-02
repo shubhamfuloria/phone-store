@@ -1,10 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import ComparisonCard from "../../components/comparisoncard/ComparisonCard";
-import { Theme, type ProductDetail } from "../../utils/types";
+import { type ProductDetail } from "../../utils/types";
 import styles from "./ComparisonPage.module.css";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import ThemeContext from "../../contexts/ThemeContext";
 
 type ComparisonPageProp = { products: ProductDetail[], onRemoveFromComparison: (id: number) => void}
 
@@ -20,8 +19,6 @@ function ComparisonPage(props: ComparisonPageProp) {
       navigate('/home');
     }
   }, [products])
-
-  const theme = useContext(ThemeContext);
 
   const maxRam = products.reduce((prev, { ram }) => {
     const currMax = ram.reduce((p, r) => Math.max(p, r), 0);

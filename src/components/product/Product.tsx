@@ -14,8 +14,6 @@ export default function Product(props: ProductProp) {
   const {
     id,
     name,
-    brand,
-    category,
     colors,
     price,
     image,
@@ -24,7 +22,6 @@ export default function Product(props: ProductProp) {
     rating,
     reviews,
     ram,
-    camera,
     isComparing,
     onAddToCompare,
   } = props;

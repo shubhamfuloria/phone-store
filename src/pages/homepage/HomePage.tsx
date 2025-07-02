@@ -1,4 +1,4 @@
-import { Theme, type ProductDetail, type ProductProp } from "../../utils/types";
+import { Theme, type ProductDetail } from "../../utils/types";
 
 import Product from "../../components/product/Product";
 
