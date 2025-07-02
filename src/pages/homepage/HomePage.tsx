@@ -25,7 +25,7 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
 
   return (
     <>
-      <Header logo={logo} heading="PhoneCart" onSearch={handleSearch}/>
+      <Header logo={logo} heading="PhoneCart" onSearch={handleSearch} />
       <main>
         <div className={styles.products_container}>
           {filteredProducts.map((product) => (
@@ -46,6 +46,14 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
               isComparing={compareList.includes(product.id) ? true : false}
             />
           ))}
+        </div>
+        <div
+          className={`${styles.compare_container} ${
+            compareList.length > 0 ? styles.visible : styles.hidden
+          }`}
+        >
+          <button>COMPARE</button>
+          <span>{compareList.length}</span>
         </div>
       </main>
     </>

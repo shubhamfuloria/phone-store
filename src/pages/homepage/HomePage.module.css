@@ -7,3 +7,43 @@
   justify-content: space-around;
   row-gap: 3rem;;
 }
+
+.compare_container {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  padding: .8rem 1.2rem;
+  background: #2874f0;
+  color: white;
+  font-weight: bold;
+  transition: all .3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.compare_container button {
+  color: white;
+  font-weight: bold;
+  outline: none;
+  background-color: transparent;
+  border: none;  
+}
+
+.compare_container span {
+  background: #205dc0;
+  padding: .4rem;
+  border-radius: 4px;
+}
+
+.compare_container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.compare_container.hidden {
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+
+}
