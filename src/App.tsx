@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
 import type { ProductDetail } from "./utils/types";
@@ -13,6 +13,24 @@ import Header from "./components/header/Header";
 function App() {
   const [products, setProducts] = useState<ProductDetail[]>(data);
   const [compareList, setCompareList] = useState<number[]>([]);
+
+
+  useEffect(() => {
+    const compareString = localStorage.getItem('compare-list');
+    if(!compareString) return;
+
+    const list = JSON.parse(compareString);
+    if(Array.isArray(list)) {
+      setCompareList(list);
+    }
+  }, [])
+
+
+  useEffect(() => {
+    if(compareList.length == 0) return;
+    localStorage.setItem('compare-list', JSON.stringify(compareList));
+  }, [compareList])
+
 
   const handleAddToCompare = (id: number) => {
     if (compareList.includes(id)) handleRemoveFromCompare(id);

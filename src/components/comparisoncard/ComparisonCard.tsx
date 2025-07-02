@@ -4,10 +4,16 @@ import { AiFillThunderbolt } from "react-icons/ai";
 import type { ProductDetail } from "../../utils/types";
 import styles from "./ComparisonCard.module.css";
 
-type ComparisonCardProp = { product: ProductDetail };
+type ComparisonCardProp = {
+  product: ProductDetail;
+  isMaxScreen: boolean;
+  isMaxBattery: boolean;
+  isMaxCamera: boolean;
+  isMaxRam: boolean;
+};
 
 function ComparisonCard(props: ComparisonCardProp) {
-  const { product } = props;
+  const { product, isMaxBattery, isMaxScreen, isMaxCamera, isMaxRam } = props;
   const { ram, camera, batteryLife, screenSize, colors, price } = product;
 
   return (
@@ -42,16 +48,18 @@ function ComparisonCard(props: ComparisonCardProp) {
             ))}
           </div>
         </li>
-        <li>
+        <li style={{ background: isMaxRam ? "lightgreen" : "", color: isMaxRam ? 'green' : '' }}>
           {ram.map((r, i) => (
             <span>
               {r} GB {i !== ram.length - 1 && ","}
             </span>
           ))}
         </li>
-        <li>{camera} Megapixels</li>
-        <li>{batteryLife} days</li>
-        <li>{screenSize} Inches</li>
+        <li style={{ background: isMaxCamera ? "lightgreen" : "", color: isMaxCamera ? 'green' : '' }}>{camera} Megapixels</li>
+        <li style={{ background: isMaxBattery ? "lightgreen" : "", color: isMaxBattery ? 'green' : '' }}>
+          {batteryLife} days
+        </li>
+        <li style={{ background: isMaxScreen ? "lightgreen" : "", color: isMaxScreen ? 'green' : '' }}>{screenSize} Inches</li>
       </ul>
       <div className={styles.addCart_container}>
         <button>
