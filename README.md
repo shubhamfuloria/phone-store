@@ -2,7 +2,7 @@
 A simple and clean website to explore newly launched smartphones and compare their features. Inspired by Flipkart's UI.
 
 # 🔗 Live Demo
-👉 https://phone-store-kappa.vercel.app/home
+👉 https://phone-store-kappa.vercel.app/
 
 # ⚙️ Getting Started
 To run the project locally:
