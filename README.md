@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# 📱 Phone Store
+A simple and clean website to explore newly launched smartphones and compare their features. Inspired by Flipkart's UI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🔗 Live Demo
+👉 https://phone-store-kappa.vercel.app/home
 
-Currently, two official plugins are available:
+# ⚙️ Getting Started
+To run the project locally:
+bashgit clone <your-repo-url>
+cd phone-store
+npm install
+npm run dev
+Now visit: http://localhost:5173
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# ✨ Features
 
-## Expanding the ESLint configuration
+- 📱 Phone Listing – Devices are loaded from data.json
+- 🔍 Search – Instantly filter phones by name
+- 📊 Compare Products – Select 2 or more phones to compare side by side
+- ✅ Highlight Best Features – In comparison screen, best specs like RAM, camera, etc. are highlighted in green. 
+- 🌙 Dark/Light Mode – Toggle themes easily
+- 📱 Responsive Design – Works well on mobile, tablet, and desktop
+- 🧠 The application remembers the comparison list, by utilizing the local storage 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+If only 1 phone is left in the compare screen, it'll take you back to home automatically.
+```
+🗂 Folder Structure
+src/
+├── assets/         # Images, icons etc.
+├── components/     # Reusable components
+├── pages/          # Home, Compare, etc.
+├── data/           # data.json (product list)
+├── styles/         # CSS files
+├── utils/          # Helper functions/types
+├── App.tsx
+└── main.tsx
+```
+# 🛠 Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+React + Vite
+TypeScript
+CSS (no frameworks)
+Hosted on Vercel
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 📦 Dependencies
+```
+json{
+  "react": "^18.x.x",
+  "react-dom": "^18.x.x",
+  "typescript": "^5.x.x",
+  "vite": "^4.x.x"
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# 💡 Extra Stuff
+Products are stored locally (no backend)
+Highlighting works even if multiple products have the same best spec
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🧪 Deployment
+Deployed on Vercel
+To deploy your own version:
+
+Fork this repo
+Import into Vercel
+Done ✅
+
+
+🙌 Thanks
+
+UI inspired by Flipkart
+Icons from Lucide
+Built with ❤️ by Shubham
+
+
+📄 License
+MIT License
