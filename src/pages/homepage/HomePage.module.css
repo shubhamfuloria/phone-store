@@ -8,6 +8,13 @@
   row-gap: 3rem;;
 }
 
+.dark .compare_container {
+  background: #23272f;
+}
+.dark .products_container {
+  background-color: lightgrey;
+}
+
 .compare_container {
   position: fixed;
   bottom: 2rem;

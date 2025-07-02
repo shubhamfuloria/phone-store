@@ -1,6 +1,12 @@
 .main {
   width: 90%;
   margin: auto;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.dark {
+  background: lightgrey;
 }
 
 .comparisoncard_container {

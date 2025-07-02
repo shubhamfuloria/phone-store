@@ -12,6 +12,11 @@
   background:  #2874f0;
   position: sticky;
   top: 0;
+  z-index: 3;
+}
+
+.header_wrapper.dark {
+  background: #23272f;
 }
 
 .heading_container {
@@ -73,6 +78,12 @@
   color: #2874f0;
 }
 
+.header button {
+  width: 100px;
+  padding: .4rem;
+  font-weight: bold;
+}
+
 @media (max-width:  480px) {
   .header {
     padding: .5rem 0;
@@ -86,5 +97,15 @@
     display: none;
   }
 
+}
+
+@media (max-width:  550px) {
+  .header h2 {display: none;}
+}
+
+@media (max-width:  900px) {
+  .header nav {
+    display: none;
+  }
 }
 

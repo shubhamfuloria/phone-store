@@ -14,3 +14,5 @@ export type ProductDetail =  {
   camera: number
 };
 
+
+export enum Theme {LIGHT, DARK};

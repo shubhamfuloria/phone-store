@@ -5,6 +5,7 @@
   padding: 1rem;
   background-color: white;
   box-shadow:  7px 10px 20px 0px rgba(0,0,0,0.75);
+  position: relative;
 }
 
 .comparison_container:hover {
@@ -92,4 +93,23 @@
   background: #fb641b;
   color: white;
   cursor: pointer;
+}
+
+.cross_container {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: lightgrey;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: .2rem;
+  cursor: pointer;
+  transition: transform ease .1s;
+}
+
+.cross_container:hover {
+  background-color: grey;
+  transform: scale(1.1);
 }

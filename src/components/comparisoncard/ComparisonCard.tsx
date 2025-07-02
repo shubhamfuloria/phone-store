@@ -1,11 +1,14 @@
 import { FaStar } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
+
 
 import type { ProductDetail } from "../../utils/types";
 import styles from "./ComparisonCard.module.css";
 
 type ComparisonCardProp = {
   product: ProductDetail;
+  onRemoveFromComparison: (id: number) => void
   isMaxScreen: boolean;
   isMaxBattery: boolean;
   isMaxCamera: boolean;
@@ -13,7 +16,7 @@ type ComparisonCardProp = {
 };
 
 function ComparisonCard(props: ComparisonCardProp) {
-  const { product, isMaxBattery, isMaxScreen, isMaxCamera, isMaxRam } = props;
+  const { product, onRemoveFromComparison, isMaxBattery, isMaxScreen, isMaxCamera, isMaxRam } = props;
   const { ram, camera, batteryLife, screenSize, colors, price } = product;
 
   return (
@@ -66,6 +69,9 @@ function ComparisonCard(props: ComparisonCardProp) {
           <AiFillThunderbolt />
           <span>Add To Cart</span>
         </button>
+      </div>
+      <div className={styles.cross_container} onClick={() => onRemoveFromComparison(product.id)}>
+      <RxCross2/>
       </div>
     </div>
   );

@@ -1,9 +1,27 @@
+import { useContext, useEffect } from "react";
 import ComparisonCard from "../../components/comparisoncard/ComparisonCard";
-import type { ProductDetail } from "../../utils/types";
+import { Theme, type ProductDetail } from "../../utils/types";
 import styles from "./ComparisonPage.module.css";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import ThemeContext from "../../contexts/ThemeContext";
 
-function ComparisonPage(props: { products: ProductDetail[] }) {
-  const { products } = props;
+type ComparisonPageProp = { products: ProductDetail[], onRemoveFromComparison: (id: number) => void}
+
+function ComparisonPage(props: ComparisonPageProp) {
+  const { products, onRemoveFromComparison } = props;
+
+  const navigate = useNavigate();
+
+  // we can not compare a single product
+  useEffect(() => {
+    if(products.length < 2) {
+      toast.info("Navigating to Home page, select more to compare !", {theme: 'dark'})
+      navigate('/home');
+    }
+  }, [products])
+
+  const theme = useContext(ThemeContext);
 
   const maxRam = products.reduce((prev, { ram }) => {
     const currMax = ram.reduce((p, r) => Math.max(p, r), 0);
@@ -24,7 +42,7 @@ function ComparisonPage(props: { products: ProductDetail[] }) {
   );
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main}`} >
       <h2>Comparing Products</h2>
       <div className={styles.comparisoncard_container}>
         {products.map((product) => (
@@ -34,6 +52,7 @@ function ComparisonPage(props: { products: ProductDetail[] }) {
             isMaxBattery={maxBattery === product.batteryLife}
             isMaxCamera={maxCamera === product.camera}
             isMaxRam={product.ram.includes(maxRam)}
+            onRemoveFromComparison={onRemoveFromComparison}
           />
         ))}
       </div>

@@ -1,10 +1,13 @@
-import type { ProductDetail, ProductProp } from "../../utils/types";
+import { Theme, type ProductDetail, type ProductProp } from "../../utils/types";
 
 import Product from "../../components/product/Product";
 
 
 import styles from "./HomePage.module.css";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import ThemeContext from "../../contexts/ThemeContext";
 
 type HomePageProp = {
   products: ProductDetail[];
@@ -16,9 +19,21 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
 
   const navigate = useNavigate();
 
+  const handleNavigateToComparisonPage = () => {
+    if(compareList.length < 2) {
+      toast.error("Please add at least 2 items to compare list", {theme: 'dark'})
+      return;
+    }
+
+    navigate('/compare')
+  }
+
+  const theme = useContext(ThemeContext);
+
+
   return (
     <>
-      <main>
+      <main className={`${theme === Theme.DARK ? styles.dark : ''}`}>
         <div className={styles.products_container}>
           {products.map((product) => (
             <Product
@@ -45,7 +60,7 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
           className={`${styles.compare_container} ${
             compareList.length > 0 ? styles.visible : styles.hidden
           }`}
-          onClick={() => navigate('/compare')}
+          onClick={handleNavigateToComparisonPage}
         >
           <button>COMPARE</button>
           <span>{compareList.length}</span>
