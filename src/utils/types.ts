@@ -1,4 +1,5 @@
 export type ProductDetail =  {
+  id: number,
   name : string,
   brand : string, 
   category: string,
@@ -7,4 +8,7 @@ export type ProductDetail =  {
   image: string,
   batteryLife: number,
   screenSize: number,
+  reviews: number,
+  rating: number
 };
+

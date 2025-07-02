@@ -108,6 +108,7 @@
   font-size: 1.8rem;
   /* color: rgb(127, 15, 231); */
   color: green;
+  margin: .4rem 0;
 }
 
 .price_container button {
@@ -122,4 +123,30 @@
   /* background: linear-gradient(135deg, #8b5cf6, #7c3aed); */
   background: #ff9f00;
   color: white;
+  cursor: pointer;
+}
+
+.featureList li:last-child { /* colors container wrapper */
+  display: flex;
+}
+
+.featureList li:last-child div {
+  flex-basis: 40%;
+
+  display: flex;
+  gap: 1rem;
+}
+
+.colors_container span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+@media (max-width:  480px) {
+  .card {
+   margin: .6rem;
+  }
 }

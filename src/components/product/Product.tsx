@@ -4,8 +4,15 @@ import type { ProductDetail } from "../../utils/types";
 
 import { FaStar } from "react-icons/fa";
 
-export default function Product(props: ProductDetail) {
+export type ProductProp = ProductDetail & {
+  isComparing: boolean;
+  onAddToCompare: (id: number) => void;
+  // onRemoveFromCompare: (id: number) => void; we don't need this anymore
+};
+
+export default function Product(props: ProductProp) {
   const {
+    id,
     name,
     brand,
     category,
@@ -14,6 +21,10 @@ export default function Product(props: ProductDetail) {
     image,
     batteryLife,
     screenSize,
+    rating,
+    reviews,
+    isComparing,
+    onAddToCompare,
   } = props;
 
   return (
@@ -26,9 +37,9 @@ export default function Product(props: ProductDetail) {
           <h3 className={styles.title}>{name}</h3>
           <div className={styles.rating_container}>
             <span>
-              4.3 <FaStar color="golden" />
+              {rating} <FaStar color="golden" />
             </span>
-            <span>5000 Review</span>
+            <span>{reviews} Review</span>
           </div>
         </div>
         <ul className={styles.featureList}>
@@ -42,10 +53,11 @@ export default function Product(props: ProductDetail) {
           </li>
           <li>
             <span>Battery Life</span>
-            <span> {batteryLife} hours</span></li>
+            <span> {batteryLife} hours</span>
+          </li>
           <li>
             <span>Colors</span>
-            <div className="details__colors-container">
+            <div className={styles.colors_container}>
               {colors.map((color) => (
                 <span style={{ background: color }}></span>
               ))}
@@ -55,7 +67,12 @@ export default function Product(props: ProductDetail) {
       </div>
       <div className={styles.price_container}>
         <h2>₹{price}</h2>
-        <button>+ Add to Compare</button>
+        <button
+          onClick={() => onAddToCompare(id)}
+          style={{ background: isComparing ? "#50C878" : "" }}
+        >
+          {isComparing ? "Added To Compare" : "+ Add To Compare"}
+        </button>
       </div>
     </div>
   );

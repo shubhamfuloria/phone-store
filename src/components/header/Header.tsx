@@ -1,7 +1,16 @@
+import { useState } from "react";
 import styles from "./Header.module.css";
 
-export default function Header(props: { logo: string; heading: string }) {
-  const { logo, heading } = props;
+type HeaderProps = {
+  logo: string;
+  heading: string;
+  onSearch: (query: string) => void;
+};
+
+export default function Header(props: HeaderProps) {
+  const { logo, heading, onSearch } = props;
+
+  const [query, setQuery] = useState("");
 
   return (
     <header className={styles.header_wrapper}>
@@ -13,8 +22,13 @@ export default function Header(props: { logo: string; heading: string }) {
           <h2>{heading}</h2>
         </div>
         <div className={styles.search_container}>
-          <input type="search" placeholder="Search Products..." />
-          <button>Search</button>
+          <input
+            type="search"
+            placeholder="Search Products..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button onClick={() => onSearch(query)}>Search</button>
         </div>
         <nav>
           <ul>
