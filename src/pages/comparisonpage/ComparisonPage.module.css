@@ -1,0 +1,16 @@
+.main {
+  width: 90%;
+  margin: auto;
+}
+
+.comparisoncard_container {
+  display: flex;
+  gap: 2rem;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+}
+.comparisoncard_container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

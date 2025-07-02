@@ -23,6 +23,8 @@ export default function Product(props: ProductProp) {
     screenSize,
     rating,
     reviews,
+    ram,
+    camera,
     isComparing,
     onAddToCompare,
   } = props;
@@ -45,7 +47,7 @@ export default function Product(props: ProductProp) {
         <ul className={styles.featureList}>
           <li>
             <span>RAM</span>
-            <span>{32} GB</span>
+            <span>{ram} GB</span>
           </li>
           <li>
             <span>Screen Size</span>
@@ -58,8 +60,8 @@ export default function Product(props: ProductProp) {
           <li>
             <span>Colors</span>
             <div className={styles.colors_container}>
-              {colors.map((color) => (
-                <span style={{ background: color }}></span>
+              {colors.map((color, index) => (
+                <span key={index} style={{ background: color }}></span>
               ))}
             </div>
           </li>

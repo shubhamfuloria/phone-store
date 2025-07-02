@@ -1,20 +1,21 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
 import type { ProductDetail } from "./utils/types";
 
 import data from "./assets/data.json";
+import logo from "./assets/logo.png";
 
 import HomePage from "./pages/homepage/HomePage";
+import ComparisonPage from "./pages/comparisonpage/ComparisonPage";
+import Header from "./components/header/Header";
 
 function App() {
   const [products, setProducts] = useState<ProductDetail[]>(data);
   const [compareList, setCompareList] = useState<number[]>([]);
 
-  console.log(compareList);
-
   const handleAddToCompare = (id: number) => {
-    if(compareList.includes(id)) handleRemoveFromCompare(id);
+    if (compareList.includes(id)) handleRemoveFromCompare(id);
     else setCompareList([...compareList, id]);
   };
 
@@ -22,13 +23,31 @@ function App() {
     setCompareList(compareList.filter((i) => i != id));
   };
 
+  const handleSearch = (query: string) => {
+    // ignore casing
+    setProducts(
+      data.filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
+    );
+  };
+
   return (
-    <HomePage
-      products={products}
-      onAddToCompare={handleAddToCompare}
-      onRemoveFromCompare={handleRemoveFromCompare}
-      compareList={compareList}
-    />
+    <BrowserRouter>
+      <Header logo={logo} heading="PhoneCart" onSearch={handleSearch} />
+      <Routes>
+        <Route
+          path="/home"
+          element={
+            <HomePage
+              products={products}
+              onAddToCompare={handleAddToCompare}
+              compareList={compareList}
+            />
+          }
+        />
+        <Route path='/compare' element={<ComparisonPage products={products.filter(product => compareList.includes(product.id))}/>}/>
+        <Route path='/*' element={<Navigate to='/home'/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

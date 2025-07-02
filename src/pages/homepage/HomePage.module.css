@@ -19,6 +19,7 @@
   transition: all .3s ease;
   transform: translateY(100%);
   opacity: 0;
+  cursor: pointer;
 }
 
 .compare_container button {

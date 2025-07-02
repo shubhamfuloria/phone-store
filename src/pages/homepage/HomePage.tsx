@@ -1,11 +1,10 @@
 import type { ProductDetail, ProductProp } from "../../utils/types";
 
-import Header from "../../components/header/Header";
 import Product from "../../components/product/Product";
 
-import logo from "../../assets/logo.png";
+
 import styles from "./HomePage.module.css";
-import { useState } from "react";
+import { useNavigate } from "react-router";
 
 type HomePageProp = {
   products: ProductDetail[];
@@ -14,21 +13,14 @@ type HomePageProp = {
 };
 
 function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
-  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const handleSearch = (query: string) => {
-    // ignore casing
-    setFilteredProducts(
-      products.filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
-    );
-  };
+  const navigate = useNavigate();
 
   return (
     <>
-      <Header logo={logo} heading="PhoneCart" onSearch={handleSearch} />
       <main>
         <div className={styles.products_container}>
-          {filteredProducts.map((product) => (
+          {products.map((product) => (
             <Product
               key={product.id}
               id={product.id}
@@ -42,6 +34,8 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
               screenSize={product.screenSize}
               reviews={product.reviews}
               rating={product.rating}
+              ram={product.ram}
+              camera={product.camera}
               onAddToCompare={onAddToCompare}
               isComparing={compareList.includes(product.id) ? true : false}
             />
@@ -51,6 +45,7 @@ function HomePage({ products, compareList, onAddToCompare }: HomePageProp) {
           className={`${styles.compare_container} ${
             compareList.length > 0 ? styles.visible : styles.hidden
           }`}
+          onClick={() => navigate('/compare')}
         >
           <button>COMPARE</button>
           <span>{compareList.length}</span>

@@ -10,7 +10,9 @@
     "batteryLife": 22,
     "screenSize": 6.1,
     "reviews": 3210,
-    "rating": 4.4
+    "rating": 4.4,
+    "ram": [8, 12],
+    "camera": 50
   },
   {
     "id": 2,
@@ -23,7 +25,9 @@
     "batteryLife": 24,
     "screenSize": 6.2,
     "reviews": 4870,
-    "rating": 4.7
+    "rating": 4.7,
+    "ram": [8],
+    "camera": 48
   },
   {
     "id": 3,
@@ -36,7 +40,9 @@
     "batteryLife": 23,
     "screenSize": 6.25,
     "reviews": 2134,
-    "rating": 4.3
+    "rating": 4.3,
+    "ram": [8, 12],
+    "camera": 50
   },
   {
     "id": 4,
@@ -49,7 +55,9 @@
     "batteryLife": 26,
     "screenSize": 6.6,
     "reviews": 1580,
-    "rating": 4.1
+    "rating": 4.1,
+    "ram": [8, 16],
+    "camera": 64
   },
   {
     "id": 5,
@@ -62,7 +70,9 @@
     "batteryLife": 25,
     "screenSize": 6.5,
     "reviews": 1987,
-    "rating": 4.0
+    "rating": 4.0,
+    "ram": [6, 8],
+    "camera": 200
   },
   {
     "id": 6,
@@ -75,7 +85,9 @@
     "batteryLife": 24,
     "screenSize": 6.6,
     "reviews": 1100,
-    "rating": 4.2
+    "rating": 4.2,
+    "ram": [8],
+    "camera": 50
   },
   {
     "id": 7,
@@ -88,7 +100,9 @@
     "batteryLife": 22,
     "screenSize": 6.7,
     "reviews": 840,
-    "rating": 3.9
+    "rating": 3.9,
+    "ram": [8, 12],
+    "camera": 100
   },
   {
     "id": 8,
@@ -101,7 +115,9 @@
     "batteryLife": 23,
     "screenSize": 6.75,
     "reviews": 975,
-    "rating": 4.0
+    "rating": 4.0,
+    "ram": [8],
+    "camera": 64
   },
   {
     "id": 9,
@@ -114,7 +130,9 @@
     "batteryLife": 21,
     "screenSize": 6.65,
     "reviews": 765,
-    "rating": 3.8
+    "rating": 3.8,
+    "ram": [6, 8],
+    "camera": 64
   },
   {
     "id": 10,
@@ -127,7 +145,9 @@
     "batteryLife": 32,
     "screenSize": 6.8,
     "reviews": 1500,
-    "rating": 4.6
+    "rating": 4.6,
+    "ram": [12, 16],
+    "camera": 50
   },
   {
     "id": 11,
@@ -140,7 +160,9 @@
     "batteryLife": 27,
     "screenSize": 6.6,
     "reviews": 1435,
-    "rating": 4.1
+    "rating": 4.1,
+    "ram": [6],
+    "camera": 64
   },
   {
     "id": 12,
@@ -153,7 +175,9 @@
     "batteryLife": 23,
     "screenSize": 6.7,
     "reviews": 1150,
-    "rating": 3.9
+    "rating": 3.9,
+    "ram": [6, 8],
+    "camera": 50
   },
   {
     "id": 13,
@@ -166,7 +190,9 @@
     "batteryLife": 26,
     "screenSize": 6.7,
     "reviews": 1020,
-    "rating": 4.0
+    "rating": 4.0,
+    "ram": [8],
+    "camera": 64
   },
   {
     "id": 14,
@@ -179,7 +205,9 @@
     "batteryLife": 23,
     "screenSize": 6.5,
     "reviews": 940,
-    "rating": 4.2
+    "rating": 4.2,
+    "ram": [6, 8],
+    "camera": 50
   },
   {
     "id": 15,
@@ -192,6 +220,8 @@
     "batteryLife": 21,
     "screenSize": 6.6,
     "reviews": 430,
-    "rating": 4.5
+    "rating": 4.5,
+    "ram": [12],
+    "camera": 48
   }
 ]

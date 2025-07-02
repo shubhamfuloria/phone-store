@@ -9,6 +9,8 @@ export type ProductDetail =  {
   batteryLife: number,
   screenSize: number,
   reviews: number,
-  rating: number
+  rating: number,
+  ram: number[],
+  camera: number
 };
 

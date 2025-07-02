@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Header.module.css";
+import { useNavigate } from "react-router";
 
 type HeaderProps = {
   logo: string;
@@ -12,10 +13,12 @@ export default function Header(props: HeaderProps) {
 
   const [query, setQuery] = useState("");
 
+  const navigate = useNavigate();
+
   return (
     <header className={styles.header_wrapper}>
       <div className={styles.header}>
-        <div className={styles.heading_container}>
+        <div className={styles.heading_container} onClick={() => navigate('/home')}>
           <div className={styles.logo_container}>
             <img src={logo} alt={heading} />
           </div>
